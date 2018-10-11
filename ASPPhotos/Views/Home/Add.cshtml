@@ -2,9 +2,13 @@
 <h2>Add Photo</h2>
 
 @using (Html.BeginForm("Add", "Home", FormMethod.Post,
- new { enctype = "multipart/formdata" }))
+ new { enctype = "multipart/form-data" }))
 {
-
+    @: Photo Name
+    <input type="text" name="photoname" /> <br/>
+    @: Upload Photo
+    <input type="file" name="phototoupload" /> <br/>
+    <input type="submit" value="Upload" />
 }
 
 

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using ASPPhotos.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace ASPPhotos.Controllers
 {
@@ -20,6 +21,13 @@ namespace ASPPhotos.Controllers
             //ViewData["Message"] = "Your application description page.";
 
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult Add(PhotoViewModel viewmodel)
+        {
+
+            return RedirectToAction("Index");
         }
 
         public IActionResult Contact()
