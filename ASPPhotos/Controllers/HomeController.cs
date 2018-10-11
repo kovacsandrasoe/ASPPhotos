@@ -22,9 +22,10 @@ namespace ASPPhotos.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            return View(bl.GetAll());
         }
 
+        [HttpGet]
         public IActionResult Add()
         {
             //ViewData["Message"] = "Your application description page.";
@@ -37,6 +38,12 @@ namespace ASPPhotos.Controllers
         {
             bl.AddPhoto(viewmodel);
             return RedirectToAction("Index");
+        }
+
+        public FileContentResult GetImage(int photoid)
+        {
+            var model = bl.GetPhotoById(photoid);
+            return File(model.PhotoData, model.ContentType);
         }
 
         public IActionResult Contact()
