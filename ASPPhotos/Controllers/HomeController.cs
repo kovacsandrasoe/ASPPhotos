@@ -6,11 +6,20 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using ASPPhotos.Models;
 using Microsoft.AspNetCore.Http;
+using ASPPhotos.Data;
 
 namespace ASPPhotos.Controllers
 {
     public class HomeController : Controller
     {
+        BusinessLogic bl;
+
+        //dep.inj tölti be a PhotoContext-et
+        public HomeController(PhotoContext context)
+        {
+            bl = new BusinessLogic(context);
+        }
+
         public IActionResult Index()
         {
             return View();
@@ -26,7 +35,7 @@ namespace ASPPhotos.Controllers
         [HttpPost]
         public IActionResult Add(PhotoViewModel viewmodel)
         {
-
+            bl.AddPhoto(viewmodel);
             return RedirectToAction("Index");
         }
 

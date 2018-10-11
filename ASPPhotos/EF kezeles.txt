@@ -1,0 +1,7 @@
+﻿migráció:
+
+Add-Migration XY
+
+db létrehozás:
+
+Update-Database
