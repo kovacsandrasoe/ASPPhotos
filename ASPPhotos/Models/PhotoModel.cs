@@ -7,5 +7,11 @@ namespace ASPPhotos.Models
 {
     public class PhotoModel
     {
+        public string PhotoName { get; set; }
+
+        public byte[] PhotoData { get; set; }
+
+        public string ContentType { get; set; }
+
     }
 }
